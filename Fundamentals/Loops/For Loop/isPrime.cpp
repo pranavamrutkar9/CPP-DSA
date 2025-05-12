@@ -15,6 +15,12 @@ int main(){
         }
     }
     if(isPrime){
-        cout<<"Prime Number"<<endl;
+        if (n == 1 || n ==0)
+        {
+            cout<<"1 & 0 are Not Prime Numbers"<<endl;
+        }
+        else{
+            cout<<"Prime Number"<<endl;
+        }
     }
 }
