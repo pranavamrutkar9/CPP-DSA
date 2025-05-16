@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// nth term = (3*n)+7
 int totalSetBits(int n){
     int count=0;
     while(n!=0){
