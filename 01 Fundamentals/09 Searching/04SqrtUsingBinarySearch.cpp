@@ -2,9 +2,10 @@
 using namespace std;
 
 void sqrtBinary(int a){
-    int s = 0, e = a - 1;
+    int s = 0, e = a;
     int mid = s + (e-s)/2;
-    while (s < e)
+    int ans = -1;
+    while (s <= e)
     {
         if ((mid*mid)==a)
         {
@@ -16,13 +17,14 @@ void sqrtBinary(int a){
             e = mid - 1;
         }
         else{
+            ans = mid;
             s = mid + 1;
         }
         mid = s + (e-s)/2;
     }
-    cout<<"Sqrt: "<<mid<<endl;
+    cout<<"Sqrt: "<<ans<<endl;
 }
 
 int main(){
-    sqrtBinary(100);
+    sqrtBinary(0);
 }
