@@ -1,55 +1,26 @@
-#include<iostream>
-#include<vector>
-using namespace std;
-
-void mergeSorted(vector<int> arr1, int n, vector<int> arr2, int m, vector<int> arr3){
-    int i = 0, j = 0;
-    int k = 0;
-
-    while (i<n && j<m)
-    {
-        if (arr1[i] < arr2[j])
-        {
-            arr3[k] = arr1[i];
-            k++;
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> nums3;
+        int i=0, j=0;
+        while(i<m && j<n){
+            if(nums1[i]<=nums2[j]){
+                nums3.push_back(nums1[i]);
+                i++;
+            }
+            else{
+                nums3.push_back(nums2[j]);
+                j++;
+            }
+        }
+        while(i<m){
+            nums3.push_back(nums1[i]);
             i++;
         }
-        else {
-            arr3[k] = arr2[j];
-            k++;
+        while(j<n){
+            nums3.push_back(nums2[j]);
             j++;
         }
+        nums1=nums3;
     }
-
-    while (i < n)
-    {
-        arr3[k] = arr1[i];
-        k++;
-        i++;
-    }
-
-    while (j < m)
-    {
-        arr3[k] = arr2[j];
-        k++;
-        j++;
-    }   
-    
-    for (int p = 0; p < arr3.size(); p++)
-    {
-        cout<<arr3[p]<<" ";
-    }
-}
-
-int main(){
-    vector<int> arr1={1,3,80};
-    vector<int> arr2={2,4,6,20};
-
-    int n = arr1.size();
-    int m = arr2.size();
-
-    vector<int> arr3;
-    arr3.resize(arr1.size() + arr2.size()); 
-
-    mergeSorted(arr1, n, arr2, m, arr3);
-}
+};
